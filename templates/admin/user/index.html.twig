@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des utilisateurs !{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <h1 class="my-5">Gestion des utilisateurs</h1>
+
+        <table class="table table-over">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Annonces</th>
+                    <th>Réservations</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for user in paginator.data %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>
+                        <img src="{{ user.picture }}" class="avatar avatar-mini mr-2">
+                        {{ user.fullName }}
+                    </td>
+                    <td>{{ user.email }}</td>
+                    <td class="text-center">
+                        <span class="badge badge-primary rounded">{{ user.ads | length }}</span>
+                    </td>
+                    <td class="text-center">
+                        <span class="badge badge-primary rounded">{{ user.bookings | length }}</span>
+                    </td>
+                    <td>
+                        <a href="{{ path('admin_users_edit', {'id': user.id}) }}" class="btn btn-primary">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        {% if user.ads | length == 0 %}
+                            <a href="{{ path('admin_users_delete', {'id': user.id}) }}" class="btn btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {{ paginator.display }}
+    </div>
+
+{% endblock %}

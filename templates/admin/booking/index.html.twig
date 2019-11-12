@@ -29,9 +29,13 @@
                         <img src="{{ booking.booker.picture }}" class="avatar avatar-mini mr-2">
                         {{ booking.booker.fullName }}
                     </td>
-                    <td>{{ booking.ad.title }}</td>
+                    <td>
+                        <a href="{{ path('admin_ads_edit', {'id': booking.ad.id}) }}">
+                            {{ booking.ad.title }}
+                        </a>
+                    </td>
                     <td>{{ booking.duration }} nuit{% if booking.duration > 1 %}s{% endif %}</td>
-                    <td>{{ booking.amount | number_format(2, ',', ' ') }}</td>
+                    <td>{{ booking.amount | number_format(2, ',', ' ') }} &euro;</td>
                     <td>
                         <a href="{{ path('admin_bookings_edit', {'id': booking.id}) }}" class="btn btn-primary">
                             <i class="fas fa-edit"></i>
