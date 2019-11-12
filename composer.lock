@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8cf1ce978bbf0eb812721e7c2a88cebf",
+    "content-hash": "70607717ab64a6c5e3eb20ff350fd461",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2208,7 +2208,7 @@
         },
         {
             "name": "symfony/asset",
-            "version": "v4.3.6",
+            "version": "v4.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
